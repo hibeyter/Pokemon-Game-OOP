@@ -29,7 +29,6 @@ public class PokemonHelper {
         
     }
     
-    
     public void  addPokemon(List<Pokemon> myPokemons){
         Bulbasaur bulbasaur = new Bulbasaur(40,1,"Bulbasaur","çim");
         myPokemons.add(bulbasaur);
@@ -50,9 +49,8 @@ public class PokemonHelper {
         Squirtle squirtle = new Squirtle(30,9,"Squirtle","su");
         myPokemons.add(squirtle);
         Zubat zubat = new Zubat(50,10,"Zubat","hava");
-        myPokemons.add(squirtle);  
+        myPokemons.add(zubat);  
     }
-    
     public static ImageIcon convertIcon(int id){
           ImageIcon image;
           BufferedImage img ;
@@ -66,8 +64,6 @@ public class PokemonHelper {
         }        
         return null;
     }
-    
-    
     public void getImages(List<ImageIcon> imgs){
           BufferedImage img = null;
           String fileName;
@@ -91,5 +87,141 @@ public class PokemonHelper {
             pokes.get(i).setIcon(imgs.get(x));
             imgs.remove(x);
         }        
+    }
+    public void pokeYerlestir(JLabel poke, Pokemon pokemons){
+        if(pokemons instanceof Bulbasaur){
+            Bulbasaur  myPokemon = (Bulbasaur) pokemons;
+            poke.setIcon(myPokemon.getImage());
+            poke.setName("1");
+        }
+        else if (pokemons instanceof Butterfree){
+            Butterfree  myPokemon = (Butterfree) pokemons;
+            poke.setIcon(myPokemon.getImage());
+             poke.setName("2");
+        }
+        else if (pokemons instanceof Charmander){
+            Charmander  myPokemon = (Charmander) pokemons;
+            poke.setIcon(myPokemon.getImage());
+             poke.setName("3");
+        }
+        else if (pokemons instanceof Jigglypuff){
+            Jigglypuff  myPokemon = (Jigglypuff) pokemons;
+            poke.setIcon(myPokemon.getImage());
+             poke.setName("4");
+        }
+        else if (pokemons instanceof Meowth){
+            Meowth  myPokemon = (Meowth) pokemons;
+            poke.setIcon(myPokemon.getImage());
+             poke.setName("5");
+        }
+        else if (pokemons instanceof Pikachu){
+            Pikachu  myPokemon = (Pikachu) pokemons;
+            poke.setIcon(myPokemon.getImage());
+             poke.setName("6");
+        }
+        else if (pokemons instanceof Psyduck){
+            Psyduck  myPokemon = (Psyduck) pokemons;
+            poke.setIcon(myPokemon.getImage());
+             poke.setName("7");
+        }
+        else if (pokemons instanceof Snorlax){
+            Snorlax  myPokemon = (Snorlax) pokemons;
+            poke.setIcon(myPokemon.getImage());
+             poke.setName("8");
+        }
+        else if (pokemons instanceof Squirtle){
+            Squirtle  myPokemon = (Squirtle) pokemons;
+            poke.setIcon(myPokemon.getImage());
+             poke.setName("9");
+        }
+        else if (pokemons instanceof Zubat){
+            Zubat  myPokemon = (Zubat) pokemons;
+            poke.setIcon(myPokemon.getImage());
+             poke.setName("10");
+        }
+    }
+    public void pokeKonumYenile(List<JLabel> pokes,List<Pokemon> pcPokemons, List<Pokemon> humanPokemons){
+       for (int i = 0; i < humanPokemons.size(); i++) {
+            for (JLabel poke : pokes) {
+               if (humanPokemons.get(i).getPokemonID()==Integer.valueOf(poke.getName())) {
+                   poke.setBounds(40+(i*139), 495, 89, 125);
+               }
+           }
+       }
+       for (int i = 0; i < pcPokemons.size(); i++) {
+            for (JLabel poke : pokes) {
+               if (pcPokemons.get(i).getPokemonID()==Integer.valueOf(poke.getName())) {
+                   poke.setBounds(40+(i*139), 80, 89, 125);
+               }
+           }
+       }
+       
+    }
+    public int pokemonKarsilastir(Pokemon pokemons){
+        int guc=0;
+        if(pokemons instanceof Bulbasaur){
+            Bulbasaur  myPokemon = (Bulbasaur) pokemons;
+            guc=myPokemon.getHasarPuanı();
+        }
+        else if (pokemons instanceof Butterfree){
+            Butterfree  myPokemon = (Butterfree) pokemons;
+            guc=myPokemon.getHasarPuanı();
+        }
+        else if (pokemons instanceof Charmander){
+            Charmander  myPokemon = (Charmander) pokemons;
+            guc=myPokemon.getHasarPuanı();
+        }
+        else if (pokemons instanceof Jigglypuff){
+            Jigglypuff  myPokemon = (Jigglypuff) pokemons;
+             guc=myPokemon.getHasarPuanı();
+        }
+        else if (pokemons instanceof Meowth){
+            Meowth  myPokemon = (Meowth) pokemons;
+            guc=myPokemon.getHasarPuanı();
+        }
+        else if (pokemons instanceof Pikachu){
+            Pikachu  myPokemon = (Pikachu) pokemons;
+             guc=myPokemon.getHasarPuanı();
+        }
+        else if (pokemons instanceof Psyduck){
+            Psyduck  myPokemon = (Psyduck) pokemons;
+            guc=myPokemon.getHasarPuanı();
+        }
+        else if (pokemons instanceof Snorlax){
+            Snorlax  myPokemon = (Snorlax) pokemons;
+            guc=myPokemon.getHasarPuanı();
+        }
+        else if (pokemons instanceof Squirtle){
+            Squirtle  myPokemon = (Squirtle) pokemons;
+            guc=myPokemon.getHasarPuanı();
+        }
+        else if (pokemons instanceof Zubat){
+            Zubat  myPokemon = (Zubat) pokemons;
+            guc=myPokemon.getHasarPuanı();
+        }
+        
+        return guc;
+    }
+
+    public void kartlariCevir(List<Pokemon> myPokemons,List<Pokemon> pcPokemon, List<JLabel> pokes) {
+        ImageIcon icon =convertIcon(0);
+         for (int i = 0; i < pcPokemon.size(); i++) {
+              for (int j = 0; j < pokes.size(); j++) {
+                  if (Integer.parseInt(pokes.get(j).getName())==pcPokemon.get(i).getPokemonID()) {
+                      pokes.get(j).setIcon(icon);
+                  }
+              }
+          }
+        for (int i = 0; i < myPokemons.size(); i++) {
+            for (int j = 5; j < pokes.size(); j++) {
+                if (Integer.parseInt(pokes.get(j).getName())==myPokemons.get(i).getPokemonID()) {
+                    pokes.get(j).setIcon(icon);
+                    pokes.get(j).setBounds(417+(i*10), 250+(i*25), 89, 125);
+                }
+            }
+        }
+    }
+    public void kartCevir(JLabel poke){
+            poke.setIcon(convertIcon(Integer.valueOf(poke.getName())));
     }
 }

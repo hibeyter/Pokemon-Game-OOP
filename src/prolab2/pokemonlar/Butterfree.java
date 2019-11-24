@@ -9,6 +9,7 @@ import prolab2.classes.Pokemon;
 public class Butterfree  extends Pokemon{
     private int hasarPuanı;
     private ImageIcon image;
+    private boolean  kartKullanildiMi;
     public Butterfree() {
     }
 
@@ -16,14 +17,26 @@ public class Butterfree  extends Pokemon{
         super(pokemonI, pokemonAd, pokemonTip);
         this.hasarPuanı = hasarPuanı;
        this.image=PokemonHelper.convertIcon(pokemonI);
+       this.kartKullanildiMi=false;
+    }
+    
+    public boolean isKartKullanildiMi() {
+        return kartKullanildiMi;
     }
 
+    public void setKartKullanildiMi(boolean kartKullanildiMi) {
+        this.kartKullanildiMi = kartKullanildiMi;
+    }
+    
     public int getHasarPuanı() {
         return hasarPuanı;
     }
 
     public void setHasarPuanı(int hasarPuanı) {
         this.hasarPuanı = hasarPuanı;
+    }
+      public ImageIcon getImage() {
+        return image;
     }
        @Override
     public int hasarPuaniGoster() {

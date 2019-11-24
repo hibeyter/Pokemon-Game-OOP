@@ -1,10 +1,7 @@
 
 package prolab2.pokemonlar;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import javax.imageio.ImageIO;
+
 import javax.swing.ImageIcon;
 import prolab2.PokemonHelper;
 import prolab2.classes.Pokemon;
@@ -13,6 +10,7 @@ import prolab2.classes.Pokemon;
 public class Meowth extends Pokemon {
     private int hasarPuanı;
     private ImageIcon image;
+    private boolean  kartKullanildiMi;
     public Meowth() {
     }
 
@@ -20,6 +18,15 @@ public class Meowth extends Pokemon {
         super(pokemonI, pokemonAd, pokemonTip);
         this.hasarPuanı = hasarPuanı;
        this.image=PokemonHelper.convertIcon(pokemonI);
+       this.kartKullanildiMi=false;
+    }
+
+    public boolean isKartKullanildiMi() {
+        return kartKullanildiMi;
+    }
+
+    public void setKartKullanildiMi(boolean kartKullanildiMi) {
+        this.kartKullanildiMi = kartKullanildiMi;
     }
 
     public int getHasarPuanı() {
@@ -29,6 +36,12 @@ public class Meowth extends Pokemon {
     public void setHasarPuanı(int hasarPuanı) {
         this.hasarPuanı = hasarPuanı;
     }
+    
+      public ImageIcon getImage() {
+        return image;
+    }
+    
+    
     @Override
     public int hasarPuaniGoster() {
         return hasarPuanı; 

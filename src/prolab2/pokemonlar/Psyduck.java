@@ -9,6 +9,7 @@ import prolab2.classes.Pokemon;
 public class Psyduck extends Pokemon {
     private int hasarPuanı;
     private ImageIcon image;
+    private boolean  kartKullanildiMi;
     public Psyduck() {
     }
 
@@ -16,6 +17,15 @@ public class Psyduck extends Pokemon {
         super(pokemonI, pokemonAd, pokemonTip);
         this.hasarPuanı = hasarPuanı;
         this.image=PokemonHelper.convertIcon(pokemonI);
+        this.kartKullanildiMi=false;
+    }
+
+    public boolean isKartKullanildiMi() {
+        return kartKullanildiMi;
+    }
+
+    public void setKartKullanildiMi(boolean kartKullanildiMi) {
+        this.kartKullanildiMi = kartKullanildiMi;
     }
 
     public int getHasarPuanı() {
@@ -25,6 +35,12 @@ public class Psyduck extends Pokemon {
     public void setHasarPuanı(int hasarPuanı) {
         this.hasarPuanı = hasarPuanı;
     }
+    
+      public ImageIcon getImage() {
+        return image;
+    }
+    
+    
     @Override
     public int hasarPuaniGoster() {
         return hasarPuanı; 

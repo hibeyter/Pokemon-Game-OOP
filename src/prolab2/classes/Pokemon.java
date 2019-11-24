@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package prolab2.classes;
 
-/**
- *
- * @author beyter
- */
-public class Pokemon {
+
+public  abstract class Pokemon {
  private int  pokemonID;
  private String pokemonAd;
  private String  pokemonTip;  
@@ -48,7 +41,6 @@ public class Pokemon {
     }
     
 
-  public int hasarPuaniGoster(){
-      return 0;
-  }
+  public abstract int hasarPuaniGoster();
+ 
 }

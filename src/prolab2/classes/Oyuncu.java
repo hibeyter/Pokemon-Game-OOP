@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package prolab2.classes;
 
 import java.util.List;
 
-/**
- *
- * @author beyter
- */
+
 public abstract class Oyuncu {
    private int oyuncuID;
    private String  oyuncuAdi;
@@ -51,6 +44,6 @@ public abstract class Oyuncu {
         this.skor = skor;
     }  
    
-    public abstract void kartSec(List<Pokemon> myPokemons);
+    public abstract void kartSec(List<Pokemon> myPokemons,List<Pokemon> pokemons);
    
 }

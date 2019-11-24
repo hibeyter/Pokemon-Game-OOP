@@ -2,6 +2,7 @@
 package prolab2.classes;
 
 import java.util.List;
+import java.util.Random;
 
 
 public class BilgisayarOyuncusu extends Oyuncu {
@@ -25,8 +26,11 @@ public class BilgisayarOyuncusu extends Oyuncu {
     }
 
     @Override
-    public void kartSec(List<Pokemon> myPokemons) {
-        
+    public void kartSec(List<Pokemon> myPokemons,List<Pokemon> pokemons) {
+         Random random = new Random();
+         int x = random.nextInt(pokemons.size());
+         myPokemons.add(pokemons.get(x));
+         pokemons.remove(x);
     }
 
  

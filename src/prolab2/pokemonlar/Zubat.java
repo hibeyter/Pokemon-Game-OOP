@@ -1,21 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package prolab2.pokemonlar;
 
 import javax.swing.ImageIcon;
 import prolab2.PokemonHelper;
 import prolab2.classes.Pokemon;
 
-/**
- *
- * @author beyter
- */
+
 public class Zubat extends Pokemon {
         private int hasarPuanı;
         private ImageIcon image;
+        private boolean  kartKullanildiMi;
     public Zubat() {
     }
 
@@ -23,6 +17,15 @@ public class Zubat extends Pokemon {
         super(pokemonI, pokemonAd, pokemonTip);
         this.hasarPuanı = hasarPuanı;
         this.image=PokemonHelper.convertIcon(pokemonI);
+        this.kartKullanildiMi=false;
+    }
+
+    public boolean isKartKullanildiMi() {
+        return kartKullanildiMi;
+    }
+
+    public void setKartKullanildiMi(boolean kartKullanildiMi) {
+        this.kartKullanildiMi = kartKullanildiMi;
     }
 
     public int getHasarPuanı() {
@@ -32,6 +35,12 @@ public class Zubat extends Pokemon {
     public void setHasarPuanı(int hasarPuanı) {
         this.hasarPuanı = hasarPuanı;
     }
+    
+      public ImageIcon getImage() {
+        return image;
+    }
+    
+    
     @Override
     public int hasarPuaniGoster() {
         return hasarPuanı; 
