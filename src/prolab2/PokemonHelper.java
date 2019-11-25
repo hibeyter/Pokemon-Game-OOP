@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -30,7 +32,7 @@ public class PokemonHelper {
     }
     
     public void  addPokemon(List<Pokemon> myPokemons){
-        Bulbasaur bulbasaur = new Bulbasaur(40,1,"Bulbasaur","çim");
+        Bulbasaur bulbasaur = new Bulbasaur(50,1,"Bulbasaur","çim");
         myPokemons.add(bulbasaur);
         Butterfree butterfree = new Butterfree(10,2,"Butterfree","hava");
         myPokemons.add(butterfree);
@@ -97,7 +99,7 @@ public class PokemonHelper {
         else if (pokemons instanceof Butterfree){
             Butterfree  myPokemon = (Butterfree) pokemons;
             poke.setIcon(myPokemon.getImage());
-             poke.setName("2");
+            poke.setName("2");
         }
         else if (pokemons instanceof Charmander){
             Charmander  myPokemon = (Charmander) pokemons;
@@ -112,7 +114,7 @@ public class PokemonHelper {
         else if (pokemons instanceof Meowth){
             Meowth  myPokemon = (Meowth) pokemons;
             poke.setIcon(myPokemon.getImage());
-             poke.setName("5");
+            poke.setName("5");
         }
         else if (pokemons instanceof Pikachu){
             Pikachu  myPokemon = (Pikachu) pokemons;
@@ -202,7 +204,22 @@ public class PokemonHelper {
         
         return guc;
     }
-
+    public void destroyCard(JLabel poke, JLabel poke1) {
+           Timer timer = new Timer();  
+           TimerTask timerTask = new TimerTask() {
+              int deger = 0;
+              @Override
+              public void run() {
+                  while(deger==1){                   
+                      poke.setVisible(false); 
+                      poke1.setVisible(false);                   
+                      deger=2;
+                  }
+                  if(deger==0) deger=1;           
+              }             
+           };
+           timer.scheduleAtFixedRate(timerTask, 0,1500);
+    }
     public void kartlariCevir(List<Pokemon> myPokemons,List<Pokemon> pcPokemon, List<JLabel> pokes) {
         ImageIcon icon =convertIcon(0);
          for (int i = 0; i < pcPokemon.size(); i++) {

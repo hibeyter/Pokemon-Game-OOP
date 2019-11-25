@@ -11,6 +11,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import prolab2.classes.BilgisayarOyuncusu;
 import prolab2.classes.InsanOyuncusu;
 import prolab2.classes.Pokemon;
@@ -27,17 +28,17 @@ public class oyuncuVSpc extends javax.swing.JFrame {
         helper.addPokemon(myPokemons); 
         addPokes(this.pokes);
         randomPoke();
-       // helper.kartlariCevir(myPokemons,pc.getKartListesi(),pokes);
+       helper.kartlariCevir(myPokemons,pc.getKartListesi(),pokes);
         for (int i = 0; i < pokes.size(); i++) {
             final int temp = i;
-                pokes.get(i).addMouseListener(new MouseAdapter() {
+                pokes.get(i).addMouseListener(new MouseAdapter() {   
                 @Override
                 public void mouseClicked(MouseEvent e)
                 {  
                     for (int j = 0; j < human.getKartListesi().size(); j++) {
                         if (human.getKartListesi().get(j).getPokemonID()==Integer.valueOf(pokes.get(temp).getName())) {
                             if (human.getKartListesi().size()==3 ||myPokemons.isEmpty() ) {
-                                 cammonFight(pokes.get(temp));
+                                 comeOnFight(pokes.get(temp));
                             }else System.out.println("yanlış hamle");
                         }
                     }
@@ -86,13 +87,13 @@ public class oyuncuVSpc extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setText("Computer =>");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(370, 10, 109, 40);
+        jLabel7.setBounds(390, 20, 109, 40);
 
         pcSkor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         pcSkor.setForeground(new java.awt.Color(255, 0, 0));
         pcSkor.setText("000");
         getContentPane().add(pcSkor);
-        pcSkor.setBounds(480, 10, 40, 40);
+        pcSkor.setBounds(500, 20, 40, 40);
 
         poke6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         poke6.setText("6");
@@ -146,7 +147,7 @@ public class oyuncuVSpc extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(200, 10, 90, 40);
+        jButton1.setBounds(180, 10, 150, 50);
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 102));
         jPanel1.setLayout(null);
@@ -157,13 +158,13 @@ public class oyuncuVSpc extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setText("Player 1 =>");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(10, 10, 100, 40);
+        jLabel9.setBounds(410, 540, 100, 40);
 
         humanSkor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         humanSkor.setForeground(new java.awt.Color(255, 0, 0));
         humanSkor.setText("000");
         getContentPane().add(humanSkor);
-        humanSkor.setBounds(110, 10, 40, 40);
+        humanSkor.setBounds(510, 540, 40, 40);
 
         pack();
         setLocationRelativeTo(null);
@@ -293,10 +294,10 @@ public class oyuncuVSpc extends javax.swing.JFrame {
         }
         this.pc.setKartListesi(pokemons);
     }
-    private void cammonFight(JLabel poke){
+    private void comeOnFight(JLabel poke){
         int pcPokeId ,x,  humanPokeId ,humanPokemonGuc=0,pcPokemonGuc;
         JLabel poke1 = null;
-         List<Pokemon> tempHumKart= human.getKartListesi();
+        List<Pokemon> tempHumKart= human.getKartListesi();
         List<Pokemon> tempPcKart= pc.getKartListesi();
         Random random = new Random();
         x= random.nextInt(pc.getKartListesi().size());
@@ -324,7 +325,9 @@ public class oyuncuVSpc extends javax.swing.JFrame {
         }
         humanSkor.setText(""+human.getSkor());
         pcSkor.setText(""+pc.getSkor());
-        destroyCard(poke,poke1);
+        helper.destroyCard(poke,poke1);
+        
+        
         for (int i = 0; i < human.getKartListesi().size(); i++) {
             if (human.getKartListesi().get(i).getPokemonID()==humanPokeId) 
                 tempHumKart.remove(human.getKartListesi().get(i));                        
@@ -335,6 +338,19 @@ public class oyuncuVSpc extends javax.swing.JFrame {
         }
         human.setKartListesi(tempHumKart);
         pc.setKartListesi(tempPcKart);
+        
+        
+        if (human.getKartListesi().isEmpty()) {
+            if(human.getSkor()>pc.getSkor()){
+                JOptionPane.showMessageDialog(this, "İnsanlık kazandı");
+            }else if(human.getSkor()==pc.getSkor()) JOptionPane.showMessageDialog(this, "Dostluk kazandı");
+            else JOptionPane.showMessageDialog(this, "Yapay zeka  kazandı");
+            Prolab2 form = new Prolab2();
+            form.setVisible(true);
+            this.setVisible(false);
+        }
+        
+        
         helper.pokeKonumYenile(pokes, pc.getKartListesi(),human.getKartListesi());
     }
     private void humanRandomPoke( List<Integer> temp ) {
@@ -348,22 +364,5 @@ public class oyuncuVSpc extends javax.swing.JFrame {
         this.human.setKartListesi(pokemons);
     }
 
-    private void destroyCard(JLabel poke, JLabel poke1) {
-      Timer timer = new Timer();  
-        TimerTask timerTask = new TimerTask() {
-           int deger = 0;
-           @Override
-           public void run() {
-               while(deger==1){                   
-                   poke.setVisible(false); 
-                   poke1.setVisible(false);                   
-                   deger=2;
-               }
-               if(deger==0) deger=1;           
-           }             
-        };
-        timer.scheduleAtFixedRate(timerTask, 0,1500);
-    }
-
-    
+     
 }
