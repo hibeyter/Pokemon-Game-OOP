@@ -7,15 +7,15 @@ import prolab2.PokemonHelper;
 import prolab2.classes.Pokemon;
 
 public class Jigglypuff extends Pokemon {
-    private int hasarPuanı;
+    private int hasarPuani;
     private ImageIcon image;
     private boolean  kartKullanildiMi;
     public Jigglypuff() {
     }
 
-    public Jigglypuff(int hasarPuanı, int pokemonI, String pokemonAd, String pokemonTip) {
+    public Jigglypuff(int hasarPuani, int pokemonI, String pokemonAd, String pokemonTip) {
         super(pokemonI, pokemonAd, pokemonTip);
-        this.hasarPuanı = hasarPuanı;
+        this.hasarPuani = hasarPuani;
        this.image=PokemonHelper.convertIcon(pokemonI);
        this.kartKullanildiMi=false;
     }
@@ -28,12 +28,12 @@ public class Jigglypuff extends Pokemon {
         this.kartKullanildiMi = kartKullanildiMi;
     }
 
-    public int getHasarPuanı() {
-        return hasarPuanı;
+    public int getHasarPuani() {
+        return hasarPuani;
     }
 
-    public void setHasarPuanı(int hasarPuanı) {
-        this.hasarPuanı = hasarPuanı;
+    public void setHasarPuani(int hasarPuani) {
+        this.hasarPuani = hasarPuani;
     }
     
       public ImageIcon getImage() {
@@ -42,6 +42,6 @@ public class Jigglypuff extends Pokemon {
     
     @Override
     public int hasarPuaniGoster() {
-        return hasarPuanı; 
+        return hasarPuani; 
     }
 }

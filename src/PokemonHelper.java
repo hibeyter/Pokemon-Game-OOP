@@ -163,43 +163,43 @@ public class PokemonHelper {
         int guc=0;
         if(pokemons instanceof Bulbasaur){
             Bulbasaur  myPokemon = (Bulbasaur) pokemons;
-            guc=myPokemon.getHasarPuanı();
+            guc=myPokemon.getHasarPuani();
         }
         else if (pokemons instanceof Butterfree){
             Butterfree  myPokemon = (Butterfree) pokemons;
-            guc=myPokemon.getHasarPuanı();
+            guc=myPokemon.getHasarPuani();
         }
         else if (pokemons instanceof Charmander){
             Charmander  myPokemon = (Charmander) pokemons;
-            guc=myPokemon.getHasarPuanı();
+            guc=myPokemon.getHasarPuani();
         }
         else if (pokemons instanceof Jigglypuff){
             Jigglypuff  myPokemon = (Jigglypuff) pokemons;
-             guc=myPokemon.getHasarPuanı();
+             guc=myPokemon.getHasarPuani();
         }
         else if (pokemons instanceof Meowth){
             Meowth  myPokemon = (Meowth) pokemons;
-            guc=myPokemon.getHasarPuanı();
+            guc=myPokemon.getHasarPuani();
         }
         else if (pokemons instanceof Pikachu){
             Pikachu  myPokemon = (Pikachu) pokemons;
-             guc=myPokemon.getHasarPuanı();
+             guc=myPokemon.getHasarPuani();
         }
         else if (pokemons instanceof Psyduck){
             Psyduck  myPokemon = (Psyduck) pokemons;
-            guc=myPokemon.getHasarPuanı();
+            guc=myPokemon.getHasarPuani();
         }
         else if (pokemons instanceof Snorlax){
             Snorlax  myPokemon = (Snorlax) pokemons;
-            guc=myPokemon.getHasarPuanı();
+            guc=myPokemon.getHasarPuani();
         }
         else if (pokemons instanceof Squirtle){
             Squirtle  myPokemon = (Squirtle) pokemons;
-            guc=myPokemon.getHasarPuanı();
+            guc=myPokemon.getHasarPuani();
         }
         else if (pokemons instanceof Zubat){
             Zubat  myPokemon = (Zubat) pokemons;
-            guc=myPokemon.getHasarPuanı();
+            guc=myPokemon.getHasarPuani();
         }
         
         return guc;

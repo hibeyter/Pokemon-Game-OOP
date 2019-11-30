@@ -7,15 +7,17 @@ import prolab2.classes.Pokemon;
 
 
 public class Zubat extends Pokemon {
-        private int hasarPuanı;
+        private int hasarPuani;
         private ImageIcon image;
         private boolean  kartKullanildiMi;
+        
+        
     public Zubat() {
     }
 
-    public Zubat(int hasarPuanı, int pokemonI, String pokemonAd, String pokemonTip) {
+    public Zubat(int hasarPuani, int pokemonI, String pokemonAd, String pokemonTip) {
         super(pokemonI, pokemonAd, pokemonTip);
-        this.hasarPuanı = hasarPuanı;
+        this.hasarPuani = hasarPuani;
         this.image=PokemonHelper.convertIcon(pokemonI);
         this.kartKullanildiMi=false;
     }
@@ -28,12 +30,12 @@ public class Zubat extends Pokemon {
         this.kartKullanildiMi = kartKullanildiMi;
     }
 
-    public int getHasarPuanı() {
-        return hasarPuanı;
+    public int getHasarPuani() {
+        return hasarPuani;
     }
 
-    public void setHasarPuanı(int hasarPuanı) {
-        this.hasarPuanı = hasarPuanı;
+    public void setHasarPuani(int hasarPuani) {
+        this.hasarPuani = hasarPuani;
     }
     
       public ImageIcon getImage() {
@@ -43,6 +45,6 @@ public class Zubat extends Pokemon {
     
     @Override
     public int hasarPuaniGoster() {
-        return hasarPuanı; 
+        return hasarPuani; 
     }
 }

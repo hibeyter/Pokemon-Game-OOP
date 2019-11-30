@@ -8,15 +8,15 @@ import prolab2.classes.Pokemon;
 
 
 public class Pikachu  extends Pokemon{
-    private int hasarPuanı;
+    private int hasarPuani;
     private ImageIcon image;
     private boolean  kartKullanildiMi;
     public Pikachu() {
     }
 
-    public Pikachu(int hasarPuanı, int pokemonI, String pokemonAd, String pokemonTip) {
+    public Pikachu(int hasarPuani, int pokemonI, String pokemonAd, String pokemonTip) {
         super(pokemonI, pokemonAd, pokemonTip);
-        this.hasarPuanı = hasarPuanı;
+        this.hasarPuani = hasarPuani;
         this.image=PokemonHelper.convertIcon(pokemonI);
         this.kartKullanildiMi=false;
     }
@@ -29,12 +29,12 @@ public class Pikachu  extends Pokemon{
         this.kartKullanildiMi = kartKullanildiMi;
     }
 
-    public int getHasarPuanı() {
-        return hasarPuanı;
+    public int getHasarPuani() {
+        return hasarPuani;
     }
 
-    public void setHasarPuanı(int hasarPuanı) {
-        this.hasarPuanı = hasarPuanı;
+    public void setHasarPuani(int hasarPuani) {
+        this.hasarPuani = hasarPuani;
     }
     
       public ImageIcon getImage() {
@@ -43,6 +43,6 @@ public class Pikachu  extends Pokemon{
     
     @Override
     public int hasarPuaniGoster() {
-        return hasarPuanı; 
+        return hasarPuani; 
     }
 }
